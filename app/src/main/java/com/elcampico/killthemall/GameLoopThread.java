@@ -1,6 +1,13 @@
 package com.elcampico.killthemall;
 
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.Canvas;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+
+import java.io.IOException;
 
 public class GameLoopThread extends Thread {
     static final long FPS = 10;

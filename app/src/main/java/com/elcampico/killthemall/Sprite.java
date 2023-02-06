@@ -15,7 +15,8 @@ public class Sprite {
     final int[] DIRECTION_TO_ANIMATION_MAP = {3,1,0,2};
     private static final int BMP_ROWS = 4;
     private static final int BMP_COLUMNS = 3;
-    private static final int MAX_SPEED = 15;
+//    private static final int MAX_SPEED = 15;
+    private int selectedSpeed;
     private int x = 0;
     private int y = 0;
     private int xSpeed;
@@ -25,9 +26,11 @@ public class Sprite {
     private int currentFrame = 0;
     private int width;
     private int height;
+    private int characterClass;
 
-    public Sprite(GameView gameView, Bitmap bmp) {
+    public Sprite(GameView gameView, Bitmap bmp, int speed, int characterClass) {
         this.gameView = gameView;
+        this.characterClass = characterClass;
         this.bmp = bmp;
         //El ancho del bitmap entre el número de columnas, nos da el ancho de 1 sprite
         this.width = bmp.getWidth() / BMP_COLUMNS;
@@ -36,8 +39,11 @@ public class Sprite {
         //Inicializamos un objeto random
         Random rnd = new Random();
         //Asignamos valores random a las velocidades x y
-        xSpeed = rnd.nextInt(MAX_SPEED * 2) - MAX_SPEED;
-        ySpeed = rnd.nextInt(MAX_SPEED * 2) - MAX_SPEED;
+        selectedSpeed = speed;
+        xSpeed = rnd.nextInt(selectedSpeed * 2) - selectedSpeed;
+        ySpeed = rnd.nextInt(selectedSpeed * 2) - selectedSpeed;
+//        xSpeed = rnd.nextInt(MAX_SPEED * 2) - MAX_SPEED;
+//        ySpeed = rnd.nextInt(MAX_SPEED * 2) - MAX_SPEED;
         //Asignamos puntos de partida random x, y
         x = rnd.nextInt(gameView.getWidth() - width);
         y = rnd.nextInt(gameView.getHeight() - height);
@@ -86,5 +92,9 @@ public class Sprite {
          */
         //El return dará true cuando pulsemos en el sprite y false cuando pulsemos fuera.
         return xTouched > x && xTouched < x + width && yTouched > y && yTouched < y + height;
+    }
+
+    public int getCharacterClass(){
+        return this.characterClass;
     }
 }

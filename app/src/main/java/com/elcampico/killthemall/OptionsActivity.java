@@ -26,21 +26,27 @@ public class OptionsActivity extends AppCompatActivity {
         speedOfCharacters = (TextView) findViewById(R.id.speed);
 
         btnStartGame.setOnClickListener(v -> {
-            int enemies = 5;
-            int speed = 5;
+            int enemies = 6;
+            int speed = 15;
 
             try{
                 enemies = Integer.parseInt(numberOfEnemies.getText().toString());
             } catch (Exception e){
-                Log.d("MARTIN DEBUG", "ERROR: Variable enemies nula. Se asigna 0." + e.getMessage());
+                Log.d("MARTIN DEBUG", "ERROR: Variable enemies nula. Se asigna 5." + e.getMessage());
             }
             try{
                 speed = Integer.parseInt(speedOfCharacters.getText().toString());
+                speed = speed == 0 ? 1:speed;
+
             } catch (Exception e){
-                Log.d("MARTIN DEBUG", "ERROR: Variable speed nula. Se asigna 0." + e.getMessage());
+                Log.d("MARTIN DEBUG", "ERROR: Variable speed nula. Se asigna 5." + e.getMessage());
             }
-            Log.d("MARTIN DEBUG", "Enemies: " + enemies + ". speed: " + speed);
-            startActivity(new Intent(this,GameSetActivity.class));
+            Intent intent = new Intent(this,GameSetActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("enemies", enemies);
+            bundle.putInt("speed", speed);
+            intent.putExtras(bundle);
+            startActivity(intent);
         });
     }
 }
