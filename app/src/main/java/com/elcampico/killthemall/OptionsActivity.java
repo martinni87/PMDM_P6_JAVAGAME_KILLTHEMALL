@@ -9,6 +9,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * @author Martín Antonio Córdoba Getar
+ * @version 1.0-alfa
+ * Fecha inicial: 7 de febrero de 2022
+ */
 public class OptionsActivity extends AppCompatActivity {
 
     Button btnStartGame;

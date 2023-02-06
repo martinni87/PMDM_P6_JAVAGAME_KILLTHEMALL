@@ -7,16 +7,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 
+/**
+ * @author Martín Antonio Córdoba Getar
+ * @version 1.0-alfa
+ * Fecha inicial: 7 de febrero de 2022
+ */
 public class GameSetActivity extends AppCompatActivity {
-    private int enemies = 23;
-    private int speed = 15;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        enemies = getIntent().getExtras().getInt("enemies");
-        speed = getIntent().getExtras().getInt("speed");
+        int enemies = getIntent().getExtras().getInt("enemies");
+        int speed = getIntent().getExtras().getInt("speed");
         setContentView(new GameView(this,enemies,speed));
 
     }

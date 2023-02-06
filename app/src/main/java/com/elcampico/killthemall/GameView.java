@@ -35,7 +35,8 @@ public class GameView extends SurfaceView {
     private int selectedSpeed;
     private int playerLife = 3;
     private int playerScore = 0;
-    private int level = 1;
+    private int level = 1;  //TODO: en futura actualización del juego, cuando se hayan matado a todos los enemigos, aumentamos la dificultad.
+                            //TODO: establecer la velocidad y la cantidad de enemigos en función de la velocidad.
     private GameOverView gameOverView;
     private boolean gameOver = false;
     private boolean gameCompleted = false;
@@ -65,6 +66,7 @@ public class GameView extends SurfaceView {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
                 createAllSprites();
+                mediaPlayer.setLooping(true); //Para que se reproduzca en bucle hasta que acabe el juego
                 mediaPlayer.start();
                 gameOverView = new GameOverView(getWidth(), getHeight());
                 gameCompleted = true;
@@ -80,10 +82,12 @@ public class GameView extends SurfaceView {
         bmpBlood = BitmapFactory.decodeResource(getResources(), R.drawable.blood1);
         soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC,0);
         try{
-            //Create objects of the 2 required classes
+            //Creamos los asset managers para poder gestionar los sonidos cortos en este contexto
             AssetManager assetManager = context.getAssets();
             AssetFileDescriptor descriptor;
 
+            //Los descriptores almacenan la información relativa al fichero que se debe reproducir
+            //y la asocian a una variable integer.
             descriptor = assetManager.openFd("female_scream.wav");
             angelScream = soundPool.load(descriptor, 0);
 

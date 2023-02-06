@@ -6,6 +6,11 @@ import android.graphics.Rect;
 
 import java.util.Random;
 
+/**
+ * @author Martín Antonio Córdoba Getar
+ * @version 1.0-alfa
+ * Fecha inicial: 7 de febrero de 2022
+ */
 public class Sprite {
     /**
      * Para la selección del sprite dentro del bitmap:

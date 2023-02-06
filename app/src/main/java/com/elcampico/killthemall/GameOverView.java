@@ -4,6 +4,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+/**
+ * @author Martín Antonio Córdoba Getar
+ * @version 1.0-alfa
+ * Fecha inicial: 7 de febrero de 2022
+ */
 public class GameOverView {
 
     private int screenWidth;
@@ -19,6 +24,10 @@ public class GameOverView {
         paint = new Paint();
     }
 
+    /**
+     * Método onDraw para pintar en el canvas el texto Game Over e indicar el puntaje ganado tras la partida.
+     * @param canvas
+     */
     public void onDraw(Canvas canvas) {
         paint.setColor(Color.WHITE);
         paint.setTextSize(100);

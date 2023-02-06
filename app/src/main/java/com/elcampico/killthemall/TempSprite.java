@@ -4,6 +4,12 @@ import java.util.List;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
+/**
+ * @author Martín Antonio Córdoba Getar
+ * @version 1.0-alfa
+ * Fecha inicial: 7 de febrero de 2022
+ */
+
 public class TempSprite {
     private float x;
     private float y;

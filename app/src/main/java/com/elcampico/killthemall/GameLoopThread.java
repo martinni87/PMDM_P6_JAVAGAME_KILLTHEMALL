@@ -1,14 +1,12 @@
 package com.elcampico.killthemall;
 
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
 import android.graphics.Canvas;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
 
-import java.io.IOException;
-
+/**
+ * @author Martín Antonio Córdoba Getar
+ * @version 1.0-alfa
+ * Fecha inicial: 7 de febrero de 2022
+ */
 public class GameLoopThread extends Thread {
     static final long FPS = 10;
     private GameView view;
